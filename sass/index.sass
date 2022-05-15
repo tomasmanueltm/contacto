@@ -1,0 +1,149 @@
+@import url('../icon/icon.css')
+
+@font-face 
+  font-family: "Poppin"
+  src: url("Poppins.ttf")
+
+
+*
+  margin: 0px
+  padding: 0px
+  list-style: none
+  font-family: Poppin
+  text-decoration: none
+  box-sizing: border-box
+
+
+*::scrollbar 
+  width: 0px
+
+*::-webkit-scrollbar 
+  width: 0px
+
+
+*::-moz-scrollbar 
+  width: 0px
+
+
+@mixin flex($justify: center, $direction: row, $gap: 0px)
+    display: flex
+    align-items: center
+    justify-content: $justify
+    flex-direction: $direction
+    gap: $gap
+@mixin mobile
+    @media ( max-width:  768px)
+        @content
+        
+
+.index
+    width: 100%
+    height: 100vh
+    margin: 0 auto
+    @include flex(center, column)
+
+    @include mobile
+        display: unset
+    
+    .aside
+        width: 800px
+        height: 365px
+        overflow: hidden
+        background: #eee
+        border-radius: 1rem
+        @include flex(space-between, row)
+
+        @include mobile
+            display: unset
+
+        .social
+            width: 320px
+            height: 365px
+            padding: 2rem
+            background: #222
+            border-radius: 0 1.5rem 1.5rem 0
+
+            @include mobile
+                width: 100%
+                border-radius: 0 0 2rem 
+                p
+                    width: 500px
+                    padding: 2.5rem
+
+            h1
+                color: #fff
+                font-size: 1.5rem
+                letter-spacing: .2rem
+
+            p
+                color: #ddd
+                padding: 2rem
+                padding-left: 0px
+
+                &::before
+                    content: ""
+                    width: 10px
+                    margin: 3px 0
+                    display: block
+                    padding: 1.8px .5rem
+                    position: relative
+                    background: #ddd
+                    border-radius: 5px
+            span
+                
+                a
+                    margin: 0 1.5rem 0 0
+                    transition: .7s linear 
+                  
+                    i
+                        color: #fff
+                        font-size: 1.4rem
+        .form
+            max-height: 100%
+            background: #eee
+            padding: 1.9rem 2rem 0
+            width: calc(100% - 45%)
+
+            @include mobile
+                float: left
+                width: 100%
+            div
+                width: 100%
+
+                span, input, textarea
+                    float: left
+                    width: 100%
+                    border: none
+                    padding: 10px
+                    outline: none
+                    border-radius: .3rem
+                    font-weight: 800
+                    // max-width: 100%
+
+                span
+                    color: #333
+                    padding: 10px 0px
+
+                textarea
+                    max-height: 100px
+                    min-height: 100px
+                    max-width: 100%
+                    min-width: 100%
+                button
+                    float: right
+                    color: #fff
+                    outline: none
+                    border: none
+                    margin: 1rem 0
+                    cursor: pointer
+                    background: #333
+                    border-radius: .3rem
+                    padding: .1rem 1.8rem
+                    @include flex(space-between, row, 20px)
+
+                    span
+                        color: #fff
+                        font-weight: 500
+                        letter-spacing: .3rem
+
+
